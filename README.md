@@ -9,8 +9,11 @@ Rincewind: Create React Apps with Parcel + React + PostCSS (with Tailwind) + Typ
 [![License](https://img.shields.io/npm/l/rincewind.svg)](https://github.com/sw-yx/rincewind/blob/master/package.json)
 
 <!-- toc -->
-* [rincewind](#rincewind)
-<!-- tocstop -->
+
+- [rincewind](#rincewind)
+  <!-- tocstop -->
+
+![https://humanitysdarkerside.files.wordpress.com/2012/07/rincewind-by-lindsay-c-walker-2.jpg?w=217&h=278](https://humanitysdarkerside.files.wordpress.com/2012/07/rincewind-by-lindsay-c-walker-2.jpg?w=217&h=278)
 
 ## Usage
 
@@ -39,3 +42,9 @@ Enjoy!
 - preact aliasing
 - ???
 - Give me your ideas! https://twitter.com/swyx
+
+## Name and History
+
+v0-v2 of this package was a different project, run by https://github.com/mmckegg over from 2013-2016
+
+https://github.com/mmckegg kindly handed this project over to swyx in Nov 2019, because of his deep love of Terry Pratchett's Discworld series and [its bumbling Wizzard](https://en.wikipedia.org/wiki/Rincewind).
