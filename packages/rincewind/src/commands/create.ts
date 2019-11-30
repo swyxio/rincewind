@@ -6,17 +6,16 @@ const chalk = require("chalk");
 const yarnOrNpm = require("yarn-or-npm");
 const spawn = yarnOrNpm.spawn;
 const ghUserName = require("git-user-name");
+const createLogger = require("progress-estimator");
+const envPaths = require("env-paths");
+const storagePath = path.join(
+  envPaths("rincewind").cache,
+  ".progress-estimator"
+);
+// All configuration keys are optional, but it's recommended to specify a storage location.
+// Learn more about configuration options below.
+const logger = createLogger({ storagePath });
 
-function findDefaultDir() {
-  const basedir = path.join(process.cwd(), "rincewind-app");
-  let dir = basedir;
-  let idx = 0;
-  while (fs.existsSync(dir)) {
-    idx += 1;
-    dir = basedir + "_" + idx;
-  }
-  return dir;
-}
 export default class Create extends Command {
   static description = "describe the command here";
 
@@ -34,37 +33,54 @@ export default class Create extends Command {
   static args = [{ name: "file" }];
 
   async run() {
-    const {
-      // args,
-      flags
-    } = this.parse(Create);
-    const createDir = flags.dir;
-    const vars = { githubUsername: ghUserName() || "TODO_WRITE_THIS" };
+    const { args, flags } = this.parse(Create);
+    const createDir = args.file || flags.dir;
+    const vars = {
+      githubUsername: ghUserName() || "TODO_WRITE_THIS",
+      currentYear: new Date().toISOString().slice(0, 4)
+    };
     const inDir = path.join(__dirname, "../templates/basic");
     const prettifycreateDir = path.relative(process.cwd(), createDir);
-    copy(inDir, createDir, vars, () => {
+    copy(inDir, createDir, vars, async () => {
       this.log(`Scaffolded app to ${chalk.cyan(prettifycreateDir)}`);
-      renameGitIgnoreFile(createDir);
+      // renameGitIgnoreFile(createDir);
       process.chdir(prettifycreateDir);
-      const childproc = spawn(["install"], { stdio: "inherit" });
-      const instance = this;
-      childproc.on("exit", function(code: number /*signal*/) {
-        if (code > 0) {
-          // not good
-          instance.error("something bad happened!"); // todo: think about how to handle this
-        } else {
-          instance.log(`Scaffolding Done!`);
-          instance.log(`Please run: `);
-          instance.log(`    ${chalk.cyan(`cd ${prettifycreateDir}`)}`);
-          instance.log(`    ${chalk.cyan(`${yarnOrNpm()} start`)}`);
+
+      await logger(
+        new Promise((yay, nay) => {
+          const childproc = spawn(["install"], {
+            stdio: ["ignore", "ignore", "inherit"]
+          });
+          childproc.on("exit", function(code: number /*signal*/) {
+            if (code > 0) {
+              // not good
+              console.error("something bad happened!"); // todo: think about how to handle this
+              nay();
+            } else {
+              yay();
+            }
+          });
+        }),
+        "Installing dependencies...",
+        {
+          estimate: 40000
         }
-      });
+      );
+      this.log(`Scaffolding Done!`);
+      this.log(`Please run: `);
+      this.log(`    ${chalk.cyan(`cd ${prettifycreateDir}`)}`);
+      this.log(`    ${chalk.cyan(`${yarnOrNpm()} start`)}`);
     });
   }
 }
 
-function renameGitIgnoreFile(createDir: string) {
-  const fromPath = path.resolve(path.join(createDir, "gitignore"));
-  const toPath = path.resolve(path.join(createDir, ".gitignore"));
-  fs.renameSync(fromPath, toPath);
+function findDefaultDir() {
+  const basedir = path.join(process.cwd(), "rincewind-app");
+  let dir = basedir;
+  let idx = 0;
+  while (fs.existsSync(dir)) {
+    idx += 1;
+    dir = basedir + "_" + idx;
+  }
+  return dir;
 }

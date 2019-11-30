@@ -1,7 +1,7 @@
 import { Command, flags } from "@oclif/command";
 const { NodePackageManager } = require("@parcel/package-manager");
 const { NodeFS } = require("@parcel/fs");
-const chalk = require("chalk");
+// const chalk = require("chalk");
 import { normalizeOptions } from "../normalizeOptions";
 
 export default class Serve extends Command {

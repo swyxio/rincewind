@@ -3,6 +3,7 @@ const { BuildError } = require("@parcel/core");
 const { NodePackageManager } = require("@parcel/package-manager");
 const { NodeFS } = require("@parcel/fs");
 const chalk = require("chalk");
+import { normalizeOptions } from "../normalizeOptions";
 
 export default class Build extends Command {
   static description = "describe the command here";
@@ -11,6 +12,10 @@ export default class Build extends Command {
 
   static flags = {
     help: flags.help({ char: "h" }),
+    "no-cache": flags.boolean({ default: false }),
+    "no-sourceMaps": flags.boolean({ default: false }),
+    "no-autoinstall": flags.boolean({ default: false }),
+    "no-profile": flags.boolean({ default: false }),
     "no-minify": flags.boolean({ default: false }),
     "no-scope-hoisting": flags.boolean({ default: false })
   };
@@ -18,7 +23,7 @@ export default class Build extends Command {
   static args = [{ name: "file" }]; // todo: support multiple entries
 
   async run() {
-    const { args } = this.parse(Build);
+    const { args, flags } = this.parse(Build);
 
     let Parcel = require("@parcel/core").default;
     let packageManager = new NodePackageManager(new NodeFS());
@@ -35,8 +40,18 @@ export default class Build extends Command {
           await packageManager.resolve("@parcel/config-default", __filename)
         ).resolved
       },
-      patchConsole: false
-      // ...(await normalizeOptions(command)) // todo: see what is in there we need
+      patchConsole: false,
+
+      ...(await normalizeOptions({
+        isProd: true,
+        cache: !flags["no-cache"],
+        minify: !flags["no-minify"],
+        sourceMaps: !flags["no-sourceMaps"],
+        scopeHoist: !flags["no-scope-hoisting"],
+        autoinstall: !flags["no-autoinstall"],
+        profile: !flags["no-profile"]
+        // TODO: offer https, minify, sourceMaps etc options
+      })) // todo: see what is in there we need
     });
 
     try {

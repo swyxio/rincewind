@@ -18,8 +18,10 @@
     "@parcel/package-manager": "^2.0.0-alpha.3.1",
     "chalk": "^3.0.0",
     "copy-template-dir": "^1.4.0",
+    "env-paths": "^2.2.0",
     "get-port": "^5.0.0",
     "git-user-name": "^2.0.0",
+    "progress-estimator": "^0.2.2",
     "tslib": "^1",
     "yarn-or-npm": "^3.0.1"
   },
@@ -68,9 +70,9 @@
     "build": "tsc -b && cp -R src/templates lib",
     "prepack": "rm -rf lib && yarn build && oclif-dev manifest && oclif-dev readme",
     "test": "echo NO TESTS",
-    "preversion": "oclif-dev readme && git add README.md",
+    "preversion": "oclif-dev readme && git add README.md && yarn copyREADME",
     "version": "auto-changelog -p --template keepachangelog && git add CHANGELOG.md",
-    "prepublishOnly": "git push && git push --tags && gh-release && yarn copyREADME",
+    "prepublishOnly": "git push && git push --tags && gh-release",
     "copyREADME": "cp README.md ../../README.md"
   },
   "types": "lib/index.d.ts"

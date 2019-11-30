@@ -29,6 +29,6 @@
       "publicUrl": "./"
     }
   },
-  "repository": "https://github.com/{{ githubUsername }}/rincewind-app",
-  "author": "{{ githubUsername }} <dont@email.me>"
+  "repository": "https://github.com/{{githubUsername}}/rincewind-app",
+  "author": "{{githubUsername}} <dont@email.me>"
 }
