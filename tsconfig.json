@@ -10,5 +10,6 @@
     "jsx": "react",
     "esModuleInterop": true
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*"],
+  "exclude": ["src/templates/**/*"]
 }

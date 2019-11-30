@@ -64,8 +64,8 @@
   "scripts": {
     "postpack": "rm -f oclif.manifest.json",
     "posttest": "eslint . --ext .ts --config .eslintrc",
-    "build": "tsc -b",
-    "prepack": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
+    "build": "tsc -b && cp -R src/templates lib",
+    "prepack": "rm -rf lib && yarn build && oclif-dev manifest && oclif-dev readme",
     "test": "echo NO TESTS",
     "preversion": "oclif-dev readme && git add README.md",
     "version": "auto-changelog -p --template keepachangelog && git add CHANGELOG.md",
