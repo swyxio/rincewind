@@ -9,10 +9,8 @@ Rincewind: Create React Apps with Parcel + React + PostCSS (with Tailwind) + Typ
 [![License](https://img.shields.io/npm/l/rincewind.svg)](https://github.com/sw-yx/rincewind/blob/master/package.json)
 
 <!-- toc -->
-
-- [rincewind](#rincewind)
-- [Usage](#usage)
-  <!-- tocstop -->
+* [rincewind](#rincewind)
+<!-- tocstop -->
 
 ## Usage
 
