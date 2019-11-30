@@ -9,14 +9,25 @@ Rincewind: A boilerplate for React + PostCSS (with Tailwind) + TypeScript
 [![License](https://img.shields.io/npm/l/rincewind.svg)](https://github.com/sw-yx/rincewind/blob/master/package.json)
 
 <!-- toc -->
-
-- [Usage](#usage)
-- [Commands](#commands)
-  <!-- tocstop -->
+* [rincewind](#rincewind)
+* [Usage](#usage)
+<!-- tocstop -->
 
 # Usage
 
 <!-- usage -->
+```sh-session
+$ npm install -g rincewind
+$ rincewind COMMAND
+running command...
+$ rincewind (-v|--version|version)
+rincewind/3.0.0-alpha.1 darwin-x64 node-v10.17.0
+$ rincewind --help [COMMAND]
+USAGE
+  $ rincewind COMMAND
+...
+```
+<!-- usagestop -->
 
 ```sh-session
 $ npm install -g rincewind

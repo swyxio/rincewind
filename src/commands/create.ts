@@ -1,7 +1,18 @@
 import { Command, flags } from "@oclif/command";
 const copy = require("copy-template-dir");
 const path = require("path");
+const fs = require("fs");
 
+function findDefaultDir() {
+  const basedir = path.join(process.cwd(), "rincewind-app");
+  let dir = basedir;
+  let idx = 0;
+  while (fs.existsSync(dir)) {
+    idx += 1;
+    dir = basedir + "_" + idx;
+  }
+  return dir;
+}
 export default class Create extends Command {
   static description = "describe the command here";
 
@@ -12,7 +23,7 @@ export default class Create extends Command {
     dir: flags.string({
       char: "d",
       description: "directory to create",
-      default: process.cwd()
+      default: findDefaultDir()
     })
     // // flag with no value (-f, --force)
     // force: flags.boolean({ char: "f" })
