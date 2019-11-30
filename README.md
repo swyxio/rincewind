@@ -40,6 +40,7 @@ Enjoy!
 - caching the node modules so you copy paste
 - module/nomodule
 - preact aliasing
+- react single file components
 - ???
 - Give me your ideas! https://twitter.com/swyx
 
