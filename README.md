@@ -1,6 +1,6 @@
 # rincewind
 
-Rincewind: A boilerplate for React + PostCSS (with Tailwind) + TypeScript
+Rincewind: Create React Apps with Parcel + React + PostCSS (with Tailwind) + TypeScript
 
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
 [![Version](https://img.shields.io/npm/v/rincewind.svg)](https://npmjs.org/package/rincewind)
@@ -9,25 +9,12 @@ Rincewind: A boilerplate for React + PostCSS (with Tailwind) + TypeScript
 [![License](https://img.shields.io/npm/l/rincewind.svg)](https://github.com/sw-yx/rincewind/blob/master/package.json)
 
 <!-- toc -->
-* [rincewind](#rincewind)
-* [Usage](#usage)
-<!-- tocstop -->
 
-# Usage
+- [rincewind](#rincewind)
+- [Usage](#usage)
+  <!-- tocstop -->
 
-<!-- usage -->
-```sh-session
-$ npm install -g rincewind
-$ rincewind COMMAND
-running command...
-$ rincewind (-v|--version|version)
-rincewind/3.0.0-alpha.3 darwin-x64 node-v10.17.0
-$ rincewind --help [COMMAND]
-USAGE
-  $ rincewind COMMAND
-...
-```
-<!-- usagestop -->
+## Usage
 
 ```sh-session
 $ npm install -g rincewind
@@ -37,3 +24,20 @@ $ rw create # creates a rincewind app
 
 $ npx rincewind create # creates a rincewind app without install
 ```
+
+Once you have a scaffolded app, `cd` into the project and then either run:
+
+- `rw build` for a production build
+- `rw serve` for local development
+
+Enjoy!
+
+## Roadmap
+
+- add basic design system to draw from
+- other templates to scaffold from including your own
+- caching the node modules so you copy paste
+- module/nomodule
+- preact aliasing
+- ???
+- Give me your ideas! https://twitter.com/swyx
