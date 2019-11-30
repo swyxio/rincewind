@@ -6,9 +6,9 @@
     "outDir": "lib",
     "rootDir": "src",
     "strict": true,
-    "target": "es2017"
+    "target": "es2017",
+    "jsx": "react",
+    "esModuleInterop": true
   },
-  "include": [
-    "src/**/*"
-  ]
+  "include": ["src/**/*"]
 }
