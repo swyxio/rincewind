@@ -7,6 +7,8 @@ Rincewind: Create React Apps with Parcel + React + PostCSS (with Tailwind) + Typ
 [![CircleCI](https://circleci.com/gh/sw-yx/rincewind/tree/master.svg?style=shield)](https://circleci.com/gh/sw-yx/rincewind/tree/master)
 [![Downloads/week](https://img.shields.io/npm/dw/rincewind.svg)](https://npmjs.org/package/rincewind)
 [![License](https://img.shields.io/npm/l/rincewind.svg)](https://github.com/sw-yx/rincewind/blob/master/package.json)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/88e02ab4-ab2c-4949-8dbe-1afb7f3b2ae6/deploy-status)](https://app.netlify.com/sites/rincewind/deploys)
+[![https://www.netlify.com/img/deploy/button.svg](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/sw-yx/rincewin-demo)
 
 <!-- toc -->
 

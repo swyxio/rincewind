@@ -5,6 +5,7 @@ const fs = require("fs");
 const chalk = require("chalk");
 const yarnOrNpm = require("yarn-or-npm");
 const spawn = yarnOrNpm.spawn;
+const ghUserName = require("git-user-name");
 
 function findDefaultDir() {
   const basedir = path.join(process.cwd(), "rincewind-app");
@@ -38,23 +39,24 @@ export default class Create extends Command {
       flags
     } = this.parse(Create);
     const createDir = flags.dir;
-    const vars = { foo: "bar" };
+    const vars = { githubUsername: ghUserName() || "TODO_WRITE_THIS" };
     const inDir = path.join(__dirname, "../templates/basic");
     const prettifycreateDir = path.relative(process.cwd(), createDir);
     copy(inDir, createDir, vars, () => {
-      console.log(`Scaffolded app to ${chalk.cyan(prettifycreateDir)}`);
+      this.log(`Scaffolded app to ${chalk.cyan(prettifycreateDir)}`);
       renameGitIgnoreFile(createDir);
       process.chdir(prettifycreateDir);
       const childproc = spawn(["install"], { stdio: "inherit" });
+      const instance = this;
       childproc.on("exit", function(code: number /*signal*/) {
         if (code > 0) {
           // not good
-          console.error("something bad happend!"); // todo: try this
+          instance.error("something bad happened!"); // todo: think about how to handle this
         } else {
-          console.log(`Scaffolding Done!`);
-          console.log(`Please run: `);
-          console.log(`    ${chalk.cyan(`cd ${prettifycreateDir}`)}`);
-          console.log(`    ${chalk.cyan(`${yarnOrNpm()} start`)}`);
+          instance.log(`Scaffolding Done!`);
+          instance.log(`Please run: `);
+          instance.log(`    ${chalk.cyan(`cd ${prettifycreateDir}`)}`);
+          instance.log(`    ${chalk.cyan(`${yarnOrNpm()} start`)}`);
         }
       });
     });

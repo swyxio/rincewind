@@ -19,6 +19,7 @@
     "chalk": "^3.0.0",
     "copy-template-dir": "^1.4.0",
     "get-port": "^5.0.0",
+    "git-user-name": "^2.0.0",
     "tslib": "^1",
     "yarn-or-npm": "^3.0.1"
   },

@@ -1,5 +1,5 @@
 {
-  "name": "rincewind",
+  "name": "rincewind-app",
   "version": "0.0.1",
   "private": true,
   "license": "MIT",
@@ -29,6 +29,6 @@
       "publicUrl": "./"
     }
   },
-  "repository": "https://github.com/sw-yx/rincewind",
-  "author": "sw-yx <swyx@swyx.io>"
+  "repository": "https://github.com/{{ githubUsername }}/rincewind-app",
+  "author": "{{ githubUsername }} <dont@email.me>"
 }
