@@ -21,7 +21,7 @@ $ npm install -g rincewind
 $ rincewind COMMAND
 running command...
 $ rincewind (-v|--version|version)
-rincewind/3.0.0-alpha.1 darwin-x64 node-v10.17.0
+rincewind/3.0.0-alpha.2 darwin-x64 node-v10.17.0
 $ rincewind --help [COMMAND]
 USAGE
   $ rincewind COMMAND

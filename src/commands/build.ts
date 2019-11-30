@@ -1,9 +1,8 @@
 import { Command, flags } from "@oclif/command";
-// const copy = require("copy-template-dir");
-// const path = require("path");
 const { BuildError } = require("@parcel/core");
 const { NodePackageManager } = require("@parcel/package-manager");
 const { NodeFS } = require("@parcel/fs");
+const chalk = require("chalk");
 
 export default class Build extends Command {
   static description = "describe the command here";
@@ -12,24 +11,14 @@ export default class Build extends Command {
 
   static flags = {
     help: flags.help({ char: "h" }),
-    // dir: flags.string({
-    //   char: "d",
-    //   description: "directory to create",
-    //   default: process.cwd()
-    // })
-    // // flag with no value (-f, --force)
     "no-minify": flags.boolean({ default: false }),
     "no-scope-hoisting": flags.boolean({ default: false })
   };
 
-  static args = [{ name: "file" }];
+  static args = [{ name: "file" }]; // todo: support multiple entries
 
   async run() {
-    const {
-      args
-      // flags
-    } = this.parse(Build);
-    // const createDir = flags.dir;
+    const { args } = this.parse(Build);
 
     let Parcel = require("@parcel/core").default;
     let packageManager = new NodePackageManager(new NodeFS());
@@ -38,7 +27,7 @@ export default class Build extends Command {
       __filename
     );
     let parcel = new Parcel({
-      entries: args,
+      entries: args.file,
       packageManager,
       defaultConfig: {
         ...defaultConfig,
@@ -47,11 +36,16 @@ export default class Build extends Command {
         ).resolved
       },
       patchConsole: false
-      // ...(await normalizeOptions(command))
+      // ...(await normalizeOptions(command)) // todo: see what is in there we need
     });
 
     try {
       await parcel.run();
+      console.log(`Build Done!`);
+      console.log(`Either serve locally: `);
+      console.log(`    ${chalk.cyan(`serve dist`)}`);
+      console.log(`Or deploy to Netlify: `);
+      console.log(`    ${chalk.cyan(`ntl deploy --prod`)}`);
     } catch (e) {
       // If an exception is thrown during Parcel.build, it is given to reporters in a
       // buildFailure event, and has been shown to the user.
