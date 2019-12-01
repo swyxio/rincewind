@@ -12,15 +12,15 @@ const recognizedCommands = [
   'dev',
   'develop',
 ]
-if (process.argv.length > 2 && recognizedCommands.includes(process.arv[2])) {
+if (process.argv.length > 2 && recognizedCommands.includes(process.argv[2])) {
   // // multi command
   //  [ '/Users/swyx/.nvm/versions/node/v10.17.0/bin/node',
   //    '/Users/swyx/Work/rincewind/node_modules/.bin/rincewind',
   //    'create' ] }
   require('@oclif/command')
-  .run()
-  .then(require('@oclif/command/flush'))
-  .catch(require('@oclif/errors/handle'))
+    .run()
+    .then(require('@oclif/command/flush'))
+    .catch(require('@oclif/errors/handle'))
 } else {
   // eslint-disable-next-line no-console
   console.log(
@@ -31,10 +31,10 @@ if (process.argv.length > 2 && recognizedCommands.includes(process.arv[2])) {
   //    '/Users/swyx/Work/rincewind/node_modules/.bin/rincewind' ] }
   if (dev) {
     // eslint-disable-next-line node/no-unpublished-require
-    require('ts-node').register({project})
+    require('ts-node').register({ project })
   }
 
   require(`../${dev ? 'src' : 'lib'}/commands/create`)
-  .default.run()
-  .catch(require('@oclif/errors/handle'))
+    .default.run()
+    .catch(require('@oclif/errors/handle'))
 }
