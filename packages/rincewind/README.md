@@ -10,15 +10,6 @@ Rincewind: Create React Apps with Parcel + React + PostCSS (with Tailwind) + Typ
 [![Netlify Status](https://api.netlify.com/api/v1/badges/88e02ab4-ab2c-4949-8dbe-1afb7f3b2ae6/deploy-status)](https://app.netlify.com/sites/rincewind/deploys)
 [![https://www.netlify.com/img/deploy/button.svg](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/sw-yx/rincewin-demo)
 
-<!-- toc -->
-
-- [rincewind](#rincewind)
-- [These all also do the same thing](#these-all-also-do-the-same-thing)
-- [These all also do the same thing](#these-all-also-do-the-same-thing-1)
-- [These all also do the same thing](#these-all-also-do-the-same-thing-2)
-- [These all also do the same thing](#these-all-also-do-the-same-thing-3)
-  <!-- tocstop -->
-
 ![https://humanitysdarkerside.files.wordpress.com/2012/07/rincewind-by-lindsay-c-walker-2.jpg?w=217&h=278](https://humanitysdarkerside.files.wordpress.com/2012/07/rincewind-by-lindsay-c-walker-2.jpg?w=217&h=278)
 
 ## Usage
