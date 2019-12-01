@@ -8,6 +8,7 @@ export default class Serve extends Command {
   static description = "describe the command here";
 
   static examples = [`$ rincewind build # production build of a rincewind app`];
+  static aliases = ["develop", "dev"];
 
   static flags = {
     help: flags.help({ char: "h" }),

@@ -1,5 +1,40 @@
 #!/usr/bin/env node
 
-require('@oclif/command').run()
-.then(require('@oclif/command/flush'))
-.catch(require('@oclif/errors/handle'))
+const fs = require('fs')
+const path = require('path')
+const project = path.join(__dirname, '../tsconfig.json')
+const dev = fs.existsSync(project)
+const recognizedCommands = [
+  'create',
+  'init',
+  'serve',
+  'build',
+  'dev',
+  'develop',
+]
+if (process.argv.length > 2 && recognizedCommands.includes(process.arv[2])) {
+  // // multi command
+  //  [ '/Users/swyx/.nvm/versions/node/v10.17.0/bin/node',
+  //    '/Users/swyx/Work/rincewind/node_modules/.bin/rincewind',
+  //    'create' ] }
+  require('@oclif/command')
+  .run()
+  .then(require('@oclif/command/flush'))
+  .catch(require('@oclif/errors/handle'))
+} else {
+  // eslint-disable-next-line no-console
+  console.log(
+    'Creating a basic Rincewind (https://github.com/sw-yx/rincewind) app'
+  )
+  // // single command
+  //  [ '/Users/swyx/.nvm/versions/node/v10.17.0/bin/node',
+  //    '/Users/swyx/Work/rincewind/node_modules/.bin/rincewind' ] }
+  if (dev) {
+    // eslint-disable-next-line node/no-unpublished-require
+    require('ts-node').register({project})
+  }
+
+  require(`../${dev ? 'src' : 'lib'}/commands/create`)
+  .default.run()
+  .catch(require('@oclif/errors/handle'))
+}

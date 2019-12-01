@@ -6,6 +6,8 @@ this is a boilerplate for
 - TailwindCSS
 - TypeScript
 
+You can scaffold this with `npx rincewind`.
+
 ## Demo at https://rincewind.netlify.com/
 
 You can see logs at https://app.netlify.com/sites/rincewind/deploys

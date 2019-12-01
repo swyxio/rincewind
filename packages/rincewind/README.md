@@ -11,8 +11,9 @@ Rincewind: Create React Apps with Parcel + React + PostCSS (with Tailwind) + Typ
 [![https://www.netlify.com/img/deploy/button.svg](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/sw-yx/rincewin-demo)
 
 <!-- toc -->
-* [rincewind](#rincewind)
-<!-- tocstop -->
+
+- [rincewind](#rincewind)
+  <!-- tocstop -->
 
 ![https://humanitysdarkerside.files.wordpress.com/2012/07/rincewind-by-lindsay-c-walker-2.jpg?w=217&h=278](https://humanitysdarkerside.files.wordpress.com/2012/07/rincewind-by-lindsay-c-walker-2.jpg?w=217&h=278)
 
@@ -20,19 +21,76 @@ Rincewind: Create React Apps with Parcel + React + PostCSS (with Tailwind) + Typ
 
 ```sh-session
 $ npm install -g rincewind
-$ rw create # creates a rincewind app
+$ rincewind # or rw
 
-## OR
-
-$ npx rincewind create # creates a rincewind app without install
+# These all also do the same thing
+## npx rincewind # creates a rincewind app without install
+## rw init
+## rw create
+## rw init myapp
+## rw create myapp
+## rw init -d myapp
+## rw create -d myapp
 ```
 
 Once you have a scaffolded app, `cd` into the project and then either run:
 
 - `rw build` for a production build
-- `rw serve` for local development
+- `rw serve` for local development. (aliases for this: `rw dev` or `rw develop`)
+
+`rw` is just an alias for `rincewind`, you can use `rw` interchangeably everywhere except with npx
 
 Enjoy!
+
+## Commands
+
+### `rincewind create`
+
+_Aliases: `rw init`_
+
+Creates a rincewind app. Only basic template available for now. You can pass an arg or a `-d` flag to specify the name of the directory it creates.
+
+```sh-session
+$ npm install -g rincewind
+$ rincewind # or rw
+
+# These all also do the same thing
+## npx rincewind # creates a rincewind app without install
+## rw init
+## rw create
+## rw init myapp
+## rw create myapp
+## rw init -d myapp
+## rw create -d myapp
+```
+
+### `rincewind serve`
+
+_Aliases: `rw dev`, `rw develop`_
+
+Locally serve a rincewind app for development.
+
+```sh-session
+rincewind serve
+
+# These all also do the same thing
+## rw serve
+## rw dev
+## rw develop
+```
+
+### `rincewind build`
+
+_Aliases: `rw build`_
+
+Build a rincewind app for production.
+
+```sh-session
+rincewind build
+
+# These all also do the same thing
+## rw build
+```
 
 ## Roadmap
 

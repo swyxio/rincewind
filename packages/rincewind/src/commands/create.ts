@@ -16,7 +16,7 @@ export default class Create extends Command {
   static description = "describe the command here";
 
   static examples = [`$ rw create # creates a rincewind app`];
-
+  static aliases = ["init"];
   static flags = {
     help: flags.help({ char: "h" }),
     dir: flags.string({
