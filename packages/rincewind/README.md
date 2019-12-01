@@ -13,6 +13,10 @@ Rincewind: Create React Apps with Parcel + React + PostCSS (with Tailwind) + Typ
 <!-- toc -->
 
 - [rincewind](#rincewind)
+- [These all also do the same thing](#these-all-also-do-the-same-thing)
+- [These all also do the same thing](#these-all-also-do-the-same-thing-1)
+- [These all also do the same thing](#these-all-also-do-the-same-thing-2)
+- [These all also do the same thing](#these-all-also-do-the-same-thing-3)
   <!-- tocstop -->
 
 ![https://humanitysdarkerside.files.wordpress.com/2012/07/rincewind-by-lindsay-c-walker-2.jpg?w=217&h=278](https://humanitysdarkerside.files.wordpress.com/2012/07/rincewind-by-lindsay-c-walker-2.jpg?w=217&h=278)
@@ -22,16 +26,17 @@ Rincewind: Create React Apps with Parcel + React + PostCSS (with Tailwind) + Typ
 ```sh-session
 $ npm install -g rincewind
 $ rincewind # or rw
-
-# These all also do the same thing
-## npx rincewind # creates a rincewind app without install
-## rw init
-## rw create
-## rw init myapp
-## rw create myapp
-## rw init -d myapp
-## rw create -d myapp
 ```
+
+These all also do the same thing
+
+- `npx rincewind` creates a rincewind app without install
+- `rw init`
+- `rw create`
+- `rw init myapp`
+- `rw create myapp`
+- `rw init -d myapp`
+- `rw create -d myapp`
 
 Once you have a scaffolded app, `cd` into the project and then either run:
 
@@ -53,16 +58,17 @@ Creates a rincewind app. Only basic template available for now. You can pass an 
 ```sh-session
 $ npm install -g rincewind
 $ rincewind # or rw
-
-# These all also do the same thing
-## npx rincewind # creates a rincewind app without install
-## rw init
-## rw create
-## rw init myapp
-## rw create myapp
-## rw init -d myapp
-## rw create -d myapp
 ```
+
+These all also do the same thing
+
+- `npx rincewind` creates a rincewind app without install
+- `rw init`
+- `rw create`
+- `rw init myapp`
+- `rw create myapp`
+- `rw init -d myapp`
+- `rw create -d myapp`
 
 ### `rincewind serve`
 
@@ -72,12 +78,13 @@ Locally serve a rincewind app for development.
 
 ```sh-session
 rincewind serve
-
-# These all also do the same thing
-## rw serve
-## rw dev
-## rw develop
 ```
+
+These all also do the same thing
+
+- `rw serve`
+- `rw dev`
+- `rw develop`
 
 ### `rincewind build`
 
@@ -87,10 +94,11 @@ Build a rincewind app for production.
 
 ```sh-session
 rincewind build
-
-# These all also do the same thing
-## rw build
 ```
+
+These all also do the same thing
+
+- `rw build`
 
 ## Roadmap
 
