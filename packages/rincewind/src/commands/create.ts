@@ -8,13 +8,9 @@ const spawn = yarnOrNpm.spawn;
 const ghUserName = require("git-user-name");
 const createLogger = require("progress-estimator");
 const envPaths = require("env-paths");
-const storagePath = path.join(
-  envPaths("rincewind").cache,
-  ".progress-estimator"
-);
 // All configuration keys are optional, but it's recommended to specify a storage location.
 // Learn more about configuration options below.
-const logger = createLogger({ storagePath });
+const logger = initProgressEstimator();
 
 export default class Create extends Command {
   static description = "describe the command here";
@@ -74,6 +70,12 @@ export default class Create extends Command {
   }
 }
 
+/**
+ *
+ * utils
+ *
+ */
+
 function findDefaultDir() {
   const basedir = path.join(process.cwd(), "rincewind-app");
   let dir = basedir;
@@ -83,4 +85,14 @@ function findDefaultDir() {
     dir = basedir + "_" + idx;
   }
   return dir;
+}
+
+function initProgressEstimator() {
+  if (!fs.existsSync(envPaths("rincewind").cache))
+    fs.mkdirSync(envPaths("rincewind").cache);
+  const storagePath = path.join(
+    envPaths("rincewind").cache,
+    ".progress-estimator"
+  );
+  return createLogger({ storagePath });
 }
