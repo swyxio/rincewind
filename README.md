@@ -19,15 +19,7 @@ $ npm install -g rincewind
 $ rincewind # or rw
 ```
 
-These all also do the same thing
-
-- `npx rincewind` creates a rincewind app without install
-- `rw init`
-- `rw create`
-- `rw init myapp`
-- `rw create myapp`
-- `rw init -d myapp`
-- `rw create -d myapp`
+By default it creates the new app in a directory called `rincewind-app`. If you want to specify the folder name, add an extra arg: `rw create myapp`
 
 Once you have a scaffolded app, `cd` into the project and then either run:
 
@@ -42,9 +34,9 @@ Enjoy!
 
 ### `rincewind create`
 
-_Aliases: `rw init`_
+_Aliases: `rw create`_
 
-Creates a rincewind app. Only basic template available for now. You can pass an arg or a `-d` flag to specify the name of the directory it creates.
+Creates a Rincewind app. Only basic template available for now. You can pass an arg or a `-d` flag to specify the name of the directory it creates.
 
 ```sh-session
 $ npm install -g rincewind
@@ -81,7 +73,7 @@ These all also do the same thing
 
 _Aliases: `rw build`_
 
-Build a rincewind app for production.
+Build a Rincewind app for production.
 
 ```sh-session
 rincewind build
@@ -99,6 +91,7 @@ These all also do the same thing
 - module/nomodule
 - preact aliasing
 - react single file components
+- other ideas from Proxx: https://www.youtube.com/watch?v=fWc3Zu6A3Ws
 - ???
 - Give me your ideas! https://twitter.com/swyx
 
