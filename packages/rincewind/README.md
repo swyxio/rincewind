@@ -92,6 +92,7 @@ These all also do the same thing
 - preact aliasing
 - react single file components
 - other ideas from Proxx: https://www.youtube.com/watch?v=fWc3Zu6A3Ws
+- need to be liefie resistant - service workers
 - ???
 - Give me your ideas! https://twitter.com/swyx
 
