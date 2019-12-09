@@ -89,7 +89,7 @@ function findDefaultDir() {
 
 function initProgressEstimator() {
   if (!fs.existsSync(envPaths("rincewind").cache))
-    fs.mkdirSync(envPaths("rincewind").cache);
+    fs.mkdirSync(envPaths("rincewind").cache, { recursive: true });    
   const storagePath = path.join(
     envPaths("rincewind").cache,
     ".progress-estimator"
